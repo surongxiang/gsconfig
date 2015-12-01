@@ -327,6 +327,35 @@ class Catalog(object):
             workspace = self.get_default_workspace()
         return UnsavedCoverageStore(self, name, workspace)
 
+    def create_coveragestore3(self, name, data_url, workspace=None, overwrite=False):
+        if not overwrite:
+            try:
+                store = self.get_store(name, workspace)
+                msg = "There is already a store named " + name
+                if workspace:
+                    msg += " in " + str(workspace)
+                raise ConflictingDataError(msg)
+            except FailedRequestError:
+                pass
+        if workspace is None:
+            workspace = self.get_default_workspace()
+        headers = {
+            "Content-type": "text/plain",
+            "Accept": "application/xml"
+        }
+        ext = "geotiff"
+        cs_url = url(self.service_url,
+            ["workspaces", workspace.name, "coveragestores", name, "external." + ext],
+            { "configure" : "first", "coverageName" : name})
+        headers, response = self.http.request(cs_url, "PUT", data_url, headers)
+        self._cache.clear()
+        if headers.status != 201:
+            raise UploadError(response)
+        else:
+            print response
+            print "*"*50
+            print headers
+
     def create_wmsstore(self, name, workspace = None, user = None, password = None):
         if workspace is None:
             workspace = self.get_default_workspace()
