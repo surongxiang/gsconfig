@@ -8,15 +8,15 @@ try:
 except IOError,e:
     readme_text = ''
 
-setup(name = "gsconfig",
+setup(name = "airwing_autopublish",
     version = "1.0.0",
     description = "GeoServer REST Configuration",
     long_description = readme_text,
     keywords = "GeoServer REST Configuration",
     license = "MIT",
-    url = "https://github.com/boundlessgeo/gsconfig",
-    author = "David Winslow, Sebastian Benthall",
-    author_email = "dwinslow@opengeo.org",
+    url = "https://github.com/surongxiang/gsconfig",
+    author = "wushi",
+    author_email = "hfutsrx@gmail.com",
     install_requires = [
         'httplib2>=0.7.4',
         'gisdata==0.5.4'

@@ -351,10 +351,6 @@ class Catalog(object):
         self._cache.clear()
         if headers.status != 201:
             raise UploadError(response)
-        else:
-            print response
-            print "*"*50
-            print headers
 
     def create_wmsstore(self, name, workspace = None, user = None, password = None):
         if workspace is None:
