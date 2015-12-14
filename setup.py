@@ -8,7 +8,7 @@ try:
 except IOError,e:
     readme_text = ''
 
-setup(name = "airwing_autoPublish",
+setup(name = "airwing",
     version = "1.0.1",
     description = "GeoServer REST Configuration",
     long_description = readme_text,

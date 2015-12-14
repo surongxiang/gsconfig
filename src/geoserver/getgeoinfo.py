@@ -23,6 +23,11 @@ def getGeoinfo(workspaceUrl, user, name, data, GLOBAL_UNAME, GLOBAL_PWD):
 	latitude[1] = latitude[1].strip()
 	longitute[0] = longitute[0].strip()
 	longitute[1] = longitute[1].strip()
-	newgeoInfo = [longitute[1], latitude[1], longitute[0], latitude[1]]
-	return newgeoInfo
+	newgeoInfo = {
+		'left_longitude':longitute[1],
+		'left_latitude':latitude[1],
+		'right_longitude':longitute[0],
+		'right_latitude':latitude[0]
+	}
 	buf.close()
+	return newgeoInfo
