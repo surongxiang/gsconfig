@@ -8,14 +8,14 @@ try:
 except IOError,e:
     readme_text = ''
 
-setup(name = "airwing",
-    version = "1.0.1",
+setup(name = "airwing_autopublish",
+    version = "1.0.4",
     description = "GeoServer REST Configuration",
     long_description = readme_text,
     keywords = "GeoServer REST Configuration",
     license = "MIT",
     url = "https://github.com/surongxiang/gsconfig",
-    author = "wushi",
+    author = "David Winslow, Sebastian Benthall",
     author_email = "hfutsrx@gmail.com",
     install_requires = [
         'httplib2>=0.7.4',
