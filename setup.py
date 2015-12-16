@@ -9,7 +9,7 @@ except IOError,e:
     readme_text = ''
 
 setup(name = "airwing_autopublish",
-    version = "1.0.4",
+    version = "1.0.5",
     description = "GeoServer REST Configuration",
     long_description = readme_text,
     keywords = "GeoServer REST Configuration",
